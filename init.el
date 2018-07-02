@@ -145,8 +145,6 @@
   (setq-default uptimes-keep-count 200)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
-(require-package 'evil)
-
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
@@ -175,6 +173,17 @@
 
 
 (provide 'init)
+
+;;----------------------------------------------------------------------------
+;; customize
+;;----------------------------------------------------------------------------
+(require-package 'evil)
+(evil-mode t)
+
+(add-hook 'prog-mode-hook 'nlinum-mode)
+
+(require-package 'color-identifiers-mode)
+(add-hook 'after-init-hook 'color-identifiers-mode)
 
 ;; Local Variables:
 ;; coding: utf-8
