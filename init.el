@@ -177,13 +177,28 @@
 ;;----------------------------------------------------------------------------
 ;; customize
 ;;----------------------------------------------------------------------------
+(setq evil-want-C-i-jump nil)
 (require-package 'evil)
 (evil-mode t)
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 (add-hook 'prog-mode-hook 'nlinum-mode)
 
 (require-package 'color-identifiers-mode)
 (add-hook 'after-init-hook 'color-identifiers-mode)
+
+;;----------------------------------------------------------------------------
+;; (electric-pair-mode &optional ARG)
+;; Toggle automatic parens pairing (Electric Pair mode).
+;; With a prefix argument ARG, enable Electric Pair mode if ARG is
+;; positive, and disable it otherwise. If called from Lisp, enable
+;; the mode if ARG is omitted or nil.
+;;----------------------------------------------------------------------------
+(electric-pair-mode -1)
 
 ;; Local Variables:
 ;; coding: utf-8
