@@ -191,14 +191,8 @@
 (require-package 'color-identifiers-mode)
 (add-hook 'after-init-hook 'color-identifiers-mode)
 
-;;----------------------------------------------------------------------------
-;; (electric-pair-mode &optional ARG)
-;; Toggle automatic parens pairing (Electric Pair mode).
-;; With a prefix argument ARG, enable Electric Pair mode if ARG is
-;; positive, and disable it otherwise. If called from Lisp, enable
-;; the mode if ARG is omitted or nil.
-;;----------------------------------------------------------------------------
-(electric-pair-mode -1)
+(desktop-save-mode -1)
+(set (make-local-variable 'electric-pair-mode) nil)
 
 ;; Local Variables:
 ;; coding: utf-8
