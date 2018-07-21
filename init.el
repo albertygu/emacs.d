@@ -171,15 +171,11 @@
 (require 'init-local nil t)
 
 
-
 (provide 'init)
 
 ;;----------------------------------------------------------------------------
 ;; customize
 ;;----------------------------------------------------------------------------
-(setq evil-want-C-i-jump nil)
-(require-package 'evil)
-(evil-mode t)
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
@@ -193,6 +189,16 @@
 
 (desktop-save-mode -1)
 (set (make-local-variable 'electric-pair-mode) nil)
+
+(require-package 'evil)
+(evil-mode t)
+
+(add-hook 'c-mode-hook
+ (function
+  (lambda () (define-key evil-motion-state-map (kbd "C-i") 'evil-jump-forward))))
+(add-hook 'org-mode-hook
+  (function
+  (lambda () (define-key evil-motion-state-map (kbd "C-i") 'org-cycle))))
 
 ;; Local Variables:
 ;; coding: utf-8
