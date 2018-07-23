@@ -182,7 +182,6 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-(add-hook 'prog-mode-hook 'nlinum-mode)
 
 (require-package 'color-identifiers-mode)
 (add-hook 'after-init-hook 'color-identifiers-mode)
@@ -199,6 +198,15 @@
 (add-hook 'org-mode-hook
   (function
   (lambda () (define-key evil-motion-state-map (kbd "C-i") 'org-cycle))))
+
+(global-nlinum-mode t)
+(setq nlinum-highlight-current-line t)
+
+(global-hl-line-mode 1)
+(set-face-background 'highlight "#222")
+(set-face-foreground 'highlight nil)
+(set-face-underline-p 'highlight t)
+
 
 ;; Local Variables:
 ;; coding: utf-8
