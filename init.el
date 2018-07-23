@@ -207,6 +207,12 @@
 (set-face-foreground 'highlight nil)
 (set-face-underline-p 'highlight t)
 
+(require 'xcscope)
+(cscope-setup)
+;; redifne key 'o' 'n' 'p' which used by 'evil-mode'
+(define-key cscope-list-entry-keymap (kbd "M-o") 'cscope-select-entry-one-window)
+(define-key cscope-list-entry-keymap (kbd "M-n") 'cscope-history-forward-line)
+(define-key cscope-list-entry-keymap (kbd "M-p") 'cscope-history-backward-line)
 
 ;; Local Variables:
 ;; coding: utf-8
