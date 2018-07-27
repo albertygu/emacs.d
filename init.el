@@ -219,6 +219,7 @@
 (setq x-select-enable-clipboard t)
 
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 (setq c-default-style
    '((c-mode . "cc-mode")
@@ -255,6 +256,19 @@
  ;; http://shreevatsa.wordpress.com/2006/10/22/emacs-copypaste-and-x/
  ;; http://www.mail-archive.com/help-gnu-emacs@gnu.org/msg03577.html
  ))
+
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
+
+(require-package 'helm-ag)
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+(custom-set-variables
+ '(helm-ag-base-command "ag --nocolor --nogroup -s -o"))
+
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
