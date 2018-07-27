@@ -218,6 +218,12 @@
 
 (setq x-select-enable-clipboard t)
 
+(setq make-backup-files nil)
+
+(setq c-default-style
+   '((c-mode . "cc-mode")
+     (other . "cc-mode")))
+
 ;; If emacs is run in a terminal, the clipboard- functions have no
 ;; effect. Instead, we use of xsel, see
 ;; http://www.vergenet.net/~conrad/software/xsel/ -- "a command-line
