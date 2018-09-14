@@ -199,10 +199,12 @@
 ;;  (function
 ;;  (lambda () (define-key evil-motion-state-map (kbd "C-i") 'org-cycle))))
 
+(setq org-src-fontify-natively t)
 (define-key evil-motion-state-map (kbd "SPC") 'org-cycle)
 
-(global-nlinum-mode t)
-(setq nlinum-highlight-current-line t)
+;;Enabling it may cause the emacs to lag
+;;(global-nlinum-mode t)
+;;(setq nlinum-highlight-current-line t)
 
 (global-hl-line-mode 1)
 (set-face-background 'highlight "#222")
