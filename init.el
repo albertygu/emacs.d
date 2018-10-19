@@ -271,6 +271,20 @@
 (custom-set-variables
  '(helm-ag-base-command "ag --nocolor --nogroup -s -o"))
 
+;Use Google translate
+(setq url-proxy-services '(("no_proxy" . "")
+                          ("http" . "")
+                          ("https" . "")))
+(require-package 'google-translate)
+(require 'google-translate-smooth-ui)
+;;(setq-default google-translate-enable-ido-completion t)
+(setq google-translate-translation-directions-alist
+      '(("en" . "zh-CN") ("zh-CN" . "en")))
+(setq google-translate-base-url "http://translate.google.cn/translate_a/t")
+(setq google-translate-listen-url "http://translate.google.cn/translate_tts")
+(setq google-translate--tkk-url "http://translate.google.cn/")
+(global-set-key (kbd "C-q") 'google-translate-smooth-translate)
+
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
