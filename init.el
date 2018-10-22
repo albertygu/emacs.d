@@ -24,6 +24,8 @@
   (setq gc-cons-threshold init-gc-cons-threshold)
   (add-hook 'after-init-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+;; for debug
+(setq garbage-collection-messages t)
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
@@ -203,8 +205,8 @@
 (define-key evil-motion-state-map (kbd "SPC") 'org-cycle)
 
 ;;Enabling it may cause the emacs to lag
-;;(global-nlinum-mode t)
-;;(setq nlinum-highlight-current-line t)
+(global-nlinum-mode t)
+(setq nlinum-highlight-current-line t)
 
 (global-hl-line-mode 1)
 (set-face-background 'highlight "#222")
@@ -284,6 +286,12 @@
 (setq google-translate-listen-url "http://translate.google.cn/translate_tts")
 (setq google-translate--tkk-url "http://translate.google.cn/")
 (global-set-key (kbd "C-q") 'google-translate-smooth-translate)
+
+;; Setting Font
+;; 解决中文卡顿的问题：
+;; 使用 emcas GUI, 在菜单中选择默认的字体
+;; 然后保存选择即可
+;; 使用 'cnfonts' 不能解决问题。
 
 ;; Local Variables:
 ;; coding: utf-8
