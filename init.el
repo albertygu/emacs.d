@@ -291,6 +291,17 @@
 (setq google-translate--tkk-url "http://translate.google.cn/")
 (global-set-key (kbd "C-q") 'google-translate-smooth-translate)
 
+
+(setq org-startup-with-inline-images t)
+
+(require 'org-download)
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+
+(setq-default org-download-image-dir "~/home/gujc/doc/emacs-files/")
+
+(setq org-image-actual-width nil)
+
 ;; Setting Font
 ;; 解决中文卡顿的问题：
 ;; 使用 emcas GUI, 在菜单中选择默认的字体
