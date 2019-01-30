@@ -205,8 +205,12 @@
 (define-key evil-motion-state-map (kbd "SPC") 'org-cycle)
 
 ;;Enabling it may cause the emacs to lag
-(global-nlinum-mode t)
-(setq nlinum-highlight-current-line t)
+;;(global-nlinum-mode t)
+;;(setq nlinum-highlight-current-line t)
+
+;;默认显示80列换行
+;;光标移动至有可能超出的行，M-q
+(setq-default fill-column 80)
 
 (global-hl-line-mode 1)
 (set-face-background 'highlight "#222")
