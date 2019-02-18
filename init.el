@@ -302,6 +302,29 @@
 
 (setq org-image-actual-width nil)
 
+;; 禁用下划线转义
+;; 在org文件头部的 OPTIONS 里面添加 ^:nil:
+;; 或者对所有文件生效
+(setq-default org-use-sub-superscripts nil)
+
+;; encoding utf-8
+(set-language-environment "UTF-8")
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(modify-coding-system-alist 'process "*" 'utf-8)
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; org-mode 中的自动换行
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+;;org to html to pdf
+;;CTRL+c CTRL+e h h
+;;wkhtmltopdf a.html a.pdf
+
 ;; Setting Font
 ;; 解决中文卡顿的问题：
 ;; 使用 emcas GUI, 在菜单中选择默认的字体
