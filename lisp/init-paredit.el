@@ -1,5 +1,8 @@
+;;; init-paredit.el --- Configure paredit structured editing -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (require-package 'paredit)
-(autoload 'enable-paredit-mode "paredit")
 
 (defun maybe-map-paredit-newline ()
   (unless (or (memq major-mode '(inferior-emacs-lisp-mode cider-repl-mode))
@@ -8,17 +11,13 @@
 
 (add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
 
-(after-load 'paredit
+(with-eval-after-load 'paredit
   (diminish 'paredit-mode " Par")
   ;; Suppress certain paredit keybindings to avoid clashes, including
   ;; my global binding of M-?
   (dolist (binding '("C-<left>" "C-<right>" "C-M-<left>" "C-M-<right>" "M-s" "M-?"))
     (define-key paredit-mode-map (read-kbd-macro binding) nil)))
 
-
-;; Compatibility with other modes
-
-(suspend-mode-during-cua-rect-selection 'paredit-mode)
 
 
 ;; Use paredit in the minibuffer
@@ -38,14 +37,6 @@
   (if (memq this-command paredit-minibuffer-commands)
       (enable-paredit-mode)))
 
-;; ----------------------------------------------------------------------------
-;; Enable some handy paredit functions in all prog modes
-;; ----------------------------------------------------------------------------
-
-(require-package 'paredit-everywhere)
-(after-load 'paredit-everywhere
-  (define-key paredit-everywhere-mode-map (kbd "M-s") nil))
-(add-hook 'prog-mode-hook 'paredit-everywhere-mode)
-(add-hook 'css-mode-hook 'paredit-everywhere-mode)
 
 (provide 'init-paredit)
+;;; init-paredit.el ends here
