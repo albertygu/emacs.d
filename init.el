@@ -329,6 +329,12 @@
 ;; 打开 tag 文件时，不发出警告
 (setq large-file-warning-threshold nil)
 
+;; 设置背景为 dark，解决 terminal eamcs 背景为蓝色的问题
+(custom-set-variables
+  '(default-frame-alist
+     '((background-color . "#111111")
+       (background-mode . dark))))
+
 ;;org to html to pdf
 ;;CTRL+c CTRL+e h h
 ;;wkhtmltopdf a.html a.pdf
