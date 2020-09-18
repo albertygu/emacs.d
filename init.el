@@ -335,6 +335,26 @@
      '((background-color . "#111111")
        (background-mode . dark))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;    c  style  ;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Ref: https://www.emacswiki.org/emacs/IndentingC
+
+(setq c-default-style "linux"
+      c-basic-offset 8)
+(setq-default c-basic-offset 8
+	      tab-width 8
+	      indent-tabs-mode t)
+
+;; 自动在 {} 中加入空行
+;;(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
+
+;; 函数的多行参数对齐
+(defun my-indent-setup ()
+  (c-set-offset 'arglist-intro '+))
+      (add-hook 'c-mode-common-hook 'my-indent-setup)
+
+(setq-default c-indent-tabs-mode t)     ; Pressing TAB should cause indentation
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;org to html to pdf
 ;;CTRL+c CTRL+e h h
 ;;wkhtmltopdf a.html a.pdf
