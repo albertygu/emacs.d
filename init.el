@@ -305,7 +305,7 @@
 (set-selection-coding-system 'utf-8)
 (modify-coding-system-alist 'process "*" 'utf-8)
 
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(custom-set-variables '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 ;; org-mode 中的自动换行
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
