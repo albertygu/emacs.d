@@ -352,7 +352,8 @@
   (c-set-offset 'arglist-intro '+))
       (add-hook 'c-mode-common-hook 'my-indent-setup)
 
-(setq-default c-indent-tabs-mode t)     ; Pressing TAB should cause indentation
+;Pressing TAB should cause indentation
+(setq-default c-indent-tabs-mode t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;org to html to pdf
