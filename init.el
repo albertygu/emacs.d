@@ -49,7 +49,6 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
-(require-package 'wgrep)
 (require-package 'diminish)
 (maybe-require-package 'scratch)
 (require-package 'command-log-mode)
@@ -195,7 +194,6 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-
 (require-package 'color-identifiers-mode)
 (add-hook 'after-init-hook 'color-identifiers-mode)
 
@@ -284,24 +282,10 @@
 	     (funcall fn)))))
 
 (require-package 'helm-ag)
-(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 (custom-set-variables
- '(helm-ag-base-command "ag --nocolor --nogroup -s -o"))
-
-;Use Google translate
-(setq url-proxy-services '(("no_proxy" . "")
-                          ("http" . "")
-                          ("https" . "")))
-(require-package 'google-translate)
-(require 'google-translate-smooth-ui)
-;;(setq-default google-translate-enable-ido-completion t)
-(setq google-translate-translation-directions-alist
-      '(("en" . "zh-CN") ("zh-CN" . "en")))
-(setq google-translate-base-url "http://translate.google.cn/translate_a/t")
-(setq google-translate-listen-url "http://translate.google.cn/translate_tts")
-(setq google-translate--tkk-url "http://translate.google.cn/")
-(global-set-key (kbd "C-q") 'google-translate-smooth-translate)
-
+  '(helm-ag-base-command "ag --nocolor --nogroup")
+  '(helm-ag-command-option "--hidden --ignore *~ --ignore .git --ignore .idea"))
+(global-set-key (kbd "M-s s") 'helm-do-ag-project-root)
 
 (setq org-startup-with-inline-images t)
 
@@ -335,9 +319,7 @@
      '((background-color . "#111111")
        (background-mode . dark))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;    c  style  ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Ref: https://www.emacswiki.org/emacs/IndentingC
-
 (setq c-default-style "linux"
       c-basic-offset 8)
 (setq-default c-basic-offset 8
@@ -354,7 +336,6 @@
 
 ;Pressing TAB should cause indentation
 (setq-default c-indent-tabs-mode t)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;org to html to pdf
 ;;CTRL+c CTRL+e h h
@@ -365,6 +346,10 @@
 ;; 使用 emcas GUI, 在菜单中选择默认的字体
 ;; 然后保存选择即可
 ;; 使用 'cnfonts' 不能解决问题。
+
+;;----------------------------------------------------------------------------
+;; customize End
+;;----------------------------------------------------------------------------
 
 ;; Local Variables:
 ;; coding: utf-8
