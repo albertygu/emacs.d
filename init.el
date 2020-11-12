@@ -339,11 +339,13 @@
 
 ;; org-mode 保存时，删除行尾空格
 (defun albert-org-mode-hook nil
-  (org-indent-mode t)
   (add-hook 'before-save-hook 'delete-trailing-whitespace) t t)
 (add-hook `org-mode-hook `albert-org-mode-hook)
 
 (global-pangu-spacing-mode t)
+
+;; 默认折叠 plain list
+(setq org-cycle-include-plain-lists 'integrate)
 
 ;;org to html to pdf
 ;;CTRL+c CTRL+e h h
